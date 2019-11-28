@@ -10,7 +10,9 @@ public class EmailApp
     {
         Email email1 = new Email("Dana", "Awua");
 
-        email1.setAlternateEmail("dk@gmail.com");
-        System.out.println(email1.getAlternateEmail());
+        System.out.println(email1.showInfo());
+
+
+
     }
 }

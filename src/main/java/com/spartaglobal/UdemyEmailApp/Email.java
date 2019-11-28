@@ -12,26 +12,26 @@ public class Email {
     private String password;
     private int defaultPassword = 9;
     private int mailboxCapacity = 500;
-    private String companySuffix = "company.com";
+    private String companySuffix = "deesevents.com";
 
 
     //constructor for firstname and lastname
     public Email(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        System.out.println("EMAIL CREATED: " + firstName + " "+ lastName );
+        //System.out.println("EMAIL CREATED: " + firstName + " "+ lastName );
 
         //call method asking for department then return department
         this.department = setDepartment();
-        System.out.println("Department: " + this.department);
+        //System.out.println("Department: " + this.department);
 
         //call method that generates random password
         this.password = randomPassword(defaultPassword);
-        System.out.println("Your password is: " + this.password);
+         System.out.println("Your password is: " + this.password);
 
         //combine elements to generate email
         email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department.toLowerCase() + "." + companySuffix;
-        System.out.println("Your email is: " + email);
+        //System.out.println("Your email is: " + email);
 
     }
 
@@ -39,7 +39,7 @@ public class Email {
 
 
     private String setDepartment() {
-        System.out.println("Enter department\n1 for Sales\n2 for Development\n3 for Accounting\n0 for none" );
+        System.out.println("New Employee: " + firstName + " " + "\nEnter Department Code \n1 for Sales\n2 for Development\n3 for Accounting\n0 for none" );
         Scanner in = new Scanner(System.in );
         int departmentChoice = in.nextInt();
         if(departmentChoice == 1){
@@ -87,7 +87,9 @@ public class Email {
     }
 
     public String showInfo(){
-        return "DISPLAY NAME: " + firstName + lastName; 
+        return "DISPLAY NAME: " + firstName + " "+ lastName +
+                "\nCOMPANY EMAIL: "+ email +
+                "\nMAILBOX CAPACITY: " + mailboxCapacity + "mb";
     }
 
 
