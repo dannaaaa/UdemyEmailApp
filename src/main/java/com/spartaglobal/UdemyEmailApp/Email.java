@@ -5,25 +5,34 @@ import java.util.Scanner;
 public class Email {
 
     private String alternateEmail;
+    private String email;
     private String firstName;
     private String lastName;
     private String department;
     private String password;
     private int defaultPassword = 9;
     private int mailboxCapacity;
+    private String companySuffix = "company.com";
 
 
-    //construcor for firstname and lastname
+    //constructor for firstname and lastname
     public Email(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
         System.out.println("EMAIL CREATED: " + firstName + " "+ lastName );
 
+        //call method asking for department then return department
         this.department = setDepartment();
         System.out.println("Department: " + this.department);
 
+        //call method that generates random password
         this.password = randomPassword(defaultPassword);
         System.out.println("Your password is: " + this.password);
+
+        //combine elements to generate email
+        email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department.toLowerCase() + "." + companySuffix;
+        System.out.println("Your email is: " + email);
+
     }
 
     //call a method that return a random password
